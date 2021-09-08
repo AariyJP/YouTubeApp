@@ -26,19 +26,25 @@ app.on("ready", () =>
   tray.setContextMenu(contextMenu)
 
   const menu = new Menu();
-  menu.append(new MenuItem({
-    label: 'YouTubeApp',
-    submenu: [{
-      label: "現在のURLをコピー",
-      accelerator: process.platform === 'darwin' ? 'Option+C' : 'Alt+C',
-      click: () => { clipboard.writeText(webContents.getURL()) }
-    },
+  menu.append(new MenuItem(
     {
-      label: "終了",
-      accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Alt+F4',
-      click: () => { app.quit(); }
-    }
-  ]
+    label: 'YouTubeApp',
+    submenu: 
+    [
+      {
+        role: 'about',
+      },
+      {
+        label: "現在のURLをコピー",
+        accelerator: process.platform === 'darwin' ? 'Option+C' : 'Alt+C',
+        click: () => { clipboard.writeText(webContents.getURL()) }
+      },
+      {
+        label: "終了",
+        accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Alt+F4',
+        click: () => { app.quit(); }
+      }
+    ]
   }));
   Menu.setApplicationMenu(menu);
 
