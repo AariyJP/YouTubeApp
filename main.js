@@ -21,7 +21,7 @@ app.on("ready", () =>
   const contextMenu = Menu.buildFromTemplate([
     { label: 'YouTubeApp', type: 'normal', enabled: false },
     { type: 'separator', enabled: false },
-    { label: '終了', type: 'normal' }
+    { label: '終了', type: 'normal', click: () => { app.quit(); } }
   ]);
   tray.setContextMenu(contextMenu);
 
@@ -38,7 +38,7 @@ app.on("ready", () =>
       {
         label: "現在のURLをコピー",
         accelerator: process.platform === 'darwin' ? 'Option+C' : 'Alt+C',
-        click: () => { clipboard.writeText(webContents.getURL()) }
+        click: () => { clipboard.writeText(webContents.getURL()); }
       },
       {
         label: '終了',
