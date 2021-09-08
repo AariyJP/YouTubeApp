@@ -70,8 +70,11 @@ app.on("ready", () =>
   });
   webContents.on('new-window', (event, url) =>
   {
-    event.preventDefault();
-    electron.shell.openExternal(url);
+    if(!url.includes('www.youtube.com'))
+    {
+      event.preventDefault();
+      electron.shell.openExternal(url);
+    }
   });
   win.on("closed", () =>
   {
