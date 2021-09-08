@@ -11,7 +11,7 @@ app.on("window-all-closed", () =>
 
 app.on("ready", () =>
 {
-  win = new BrowserWindow({show: false, titleBarStyle: 'hidden', width: 1330, height: 900});
+  win = new BrowserWindow({show: false, titleBarStyle: 'hidden', width: 1330, height: 747});
   win.loadURL(`https://www.youtube.com`);
   var webContents = win.webContents;
   webContents.insertCSS('* { font-family: system-ui!important; } ::-webkit-scrollbar { display:none; } #container.ytd-masthead, header { -webkit-app-region: drag!important; } yt-icon-button, yt-icon, #container.ytd-searchbox, ytd-topbar-menu-button-renderer, a, ytcp-icon-button, ytcp-button, input { -webkit-app-region: no-drag!important; } html:not(.style-scope)[dark], :not(.style-scope)[dark] { --yt-spec-brand-background-primary: rgba(50, 0, 0, 0.9)!important } #items > ytd-compact-link-renderer:nth-child(3), #buttons > ytd-topbar-menu-button-renderer:nth-child(1), #items > ytd-compact-link-renderer:nth-child(5), #items > ytd-compact-link-renderer:nth-child(3) { display: none!important;}');
