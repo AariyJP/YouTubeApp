@@ -23,7 +23,7 @@ app.on("ready", () =>
     { type: 'separator', enabled: false },
     { label: '終了', type: 'normal' }
   ]);
-  tray.setContextMenu(contextMenu)
+  tray.setContextMenu(contextMenu);
 
   const menu = new Menu();
   menu.append(new MenuItem(
@@ -33,6 +33,7 @@ app.on("ready", () =>
     [
       {
         role: 'about',
+        label: 'YouTubeAppについて'
       },
       {
         label: "現在のURLをコピー",
@@ -40,9 +41,8 @@ app.on("ready", () =>
         click: () => { clipboard.writeText(webContents.getURL()) }
       },
       {
-        label: "終了",
-        accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Alt+F4',
-        click: () => { app.quit(); }
+        label: '終了',
+        role: 'quit'
       }
     ]
   }));
@@ -59,9 +59,9 @@ app.on("ready", () =>
           clipboard.writeText(win.getURL());
         }
       }
-    ], 
+    ],
     showSaveImage: true
-  })
+  });
 
   win.once('ready-to-show', () =>
   {
