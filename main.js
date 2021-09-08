@@ -7,7 +7,7 @@ let win = null;
 app.on("window-all-closed", () =>
 {
   app.quit();
-});
+})
 
 app.on("ready", () =>
 {
