@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "electron-builder -w --x64 --dir",
+    "build:win": "electron-builder -w --x64 --dir",
+    "build:mac": "electron-builder -m --x64 --dir"
     "start": "electron ."
   },
   "author": "",
