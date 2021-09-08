@@ -29,11 +29,15 @@ app.on("ready", () =>
   menu.append(new MenuItem({
     label: 'YouTubeApp',
     submenu: [{
-      role: 'YouTubeApp',
+      label: "現在のURLをコピー",
       accelerator: process.platform === 'darwin' ? 'Option+C' : 'Alt+C',
       click: () => { clipboard.writeText(webContents.getURL()) }
     },
-    { role: 'copy' }
+    {
+      label: "終了",
+      accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Alt+F4',
+      click: () => { app.quit(); }
+    }
   ]
   }));
   Menu.setApplicationMenu(menu);
