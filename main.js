@@ -18,6 +18,7 @@ app.on("ready", () =>
   if(process.platform == "darwin")
     webContents.insertCSS('#start.ytd-masthead { margin-left: 60px; }');
   tray = new Tray(nativeImage.createFromPath('youtube.png'));
+  
   const contextMenu = Menu.buildFromTemplate([
     { label: 'YouTubeApp', type: 'normal', enabled: false },
     { type: 'separator', enabled: false },
