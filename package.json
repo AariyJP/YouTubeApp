@@ -6,6 +6,7 @@
   "scripts": {
     "build:win": "electron-builder -w --x64 --dir",
     "build:mac": "electron-builder -m --x64 --dir",
+    "package": "electron-builder -mw --x64",
     "start": "electron ."
   },
   "author": "",
