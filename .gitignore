@@ -1,3 +1,5 @@
+.DS_Store
+.git
+Thumbs.db
 node_modules
 dist
-.git
