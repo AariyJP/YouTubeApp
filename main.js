@@ -4,6 +4,7 @@ const rightMenu = require('electron-context-menu');
 
 let win = null;
 
+app.disableHardwareAcceleration();
 app.on("ready", () =>
 {
   if(process.platform == "darwin")
