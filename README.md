@@ -1,3 +1,5 @@
 # YouTubeApp
-独立してネイティブ動作する、YouTubeアプリです。
-Windows、macOS、Linuxに対応しています。
+Windows、macOS、Linux環境で独立したアプリケーションとして動作するYouTubeアプリです。
+## ダウンロード
+[リリース](https://github.com/AariyJP/YouTubeApp/releases)からセットアップファイルをダウンロードすることができます。
+フィードバックはイシューやプルリクエストから是非お待ちしております。
