@@ -10,7 +10,7 @@ app.on("ready", () =>
   if(process.platform == "darwin")
     win = new BrowserWindow({show: false, titleBarStyle: 'hiddenInset', width: 1330, height: 747});
   else
-    win = new BrowserWindow({show: false, titleBarStyle: 'hidden', titleBarOverlay: {color: '#320000',symbolColor: '#FFFFFF'}, width: 1330, height: 747});
+    win = new BrowserWindow({show: false, titleBarStyle: 'hidden', titleBarOverlay: {color: '#2f0202',symbolColor: '#FFFFFF'}, width: 1330, height: 747});
   win.loadURL(`https://www.youtube.com`);
   var webContents = win.webContents;
   tray = new Tray(nativeImage.createFromPath('youtube.png'));
