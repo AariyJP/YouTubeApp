@@ -7,19 +7,22 @@ let win = null;
 app.disableHardwareAcceleration();
 app.on("ready", () =>
 {
+
   if(process.platform == "darwin")
     win = new BrowserWindow({show: false, titleBarStyle: 'hiddenInset', width: 1330, height: 745});
   else
     win = new BrowserWindow({show: false, titleBarStyle: 'hidden', titleBarOverlay: {color: '#2f0202',symbolColor: '#FFFFFF'}, width: 1330, height: 745});
   win.loadURL(`https://www.youtube.com`);
   var webContents = win.webContents;
-  tray = new Tray(nativeImage.createFromPath('youtube.png'));
+
   const contextMenu = Menu.buildFromTemplate([
     { label: 'YouTubeApp', type: 'normal', enabled: false },
     { type: 'separator', enabled: false },
     { label: '終了', type: 'normal', click: () => { app.quit(); } }
   ]);
+  tray = new Tray(nativeImage.createFromPath('youtube.png'));
   tray.setContextMenu(contextMenu);
+  
   const menu = new Menu();
   menu.append(new MenuItem(
     {
@@ -31,10 +34,22 @@ app.on("ready", () =>
         accelerator: process.platform === 'darwin' ? 'Option+C' : 'Alt+C',
         click: () => { clipboard.writeText(webContents.getURL()); }
       },
-     {
-       role: 'toggleDevTools',
+      {
+        label: '拡大',
+        role: 'zoomIn'
+      },
+      {
+        label: '縮小',
+        role: 'zoomOut'
+      },
+      {
+        label: '拡大率をリセット',
+        role: 'resetZoom'
+      },
+      {
+        role: 'toggleDevTools',
         label: '開発者ツールを切り替え'
-     },
+      },
       {
         label: '終了',
         role: 'quit'
@@ -57,10 +72,7 @@ app.on("ready", () =>
     ],
     showSaveImage: true
   });
-  win.once('ready-to-show', () =>
-  {
-    win.show();
-  });
+
   webContents.on('new-window', (event, url) =>
   {
     event.preventDefault();
@@ -76,10 +88,16 @@ app.on("ready", () =>
       webContents.insertCSS('#end.ytd-masthead, .right-section { padding-right: 140px; }');
   });
 
+  win.once('ready-to-show', () =>
+  {
+    win.show();
+  });
+
   win.on("closed", () =>
   {
     win = null;
   });
+
 });
 
 app.on("window-all-closed", () =>
