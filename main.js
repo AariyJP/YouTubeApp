@@ -51,6 +51,10 @@ app.on("ready", () =>
         label: '開発者ツールを切り替え'
       },
       {
+        role: 'close',
+        lab,el: '閉じる'
+      },
+      {
         label: '終了',
         role: 'quit'
       }
@@ -81,7 +85,7 @@ app.on("ready", () =>
 
   webContents.on('page-favicon-updated', () =>
   {
-    webContents.insertCSS('* { font-family: system-ui!important; } ::-webkit-scrollbar { display:none; } #container.ytd-masthead, header { -webkit-app-region: drag!important; -webkit-user-select: none!important; } yt-icon-button, yt-icon, #container.ytd-searchbox, ytd-topbar-menu-button-renderer, a, ytcp-icon-button, ytcp-button, input { -webkit-app-region: no-drag!important; } html:not(.style-scope)[dark], :not(.style-scope)[dark] { --yt-spec-brand-background-primary: rgba(50, 0, 0, 0.9)!important; } html:not(.style-scope) { --yt-spec-brand-background-primary: rgba(255, 200, 200, 0.9)!important; }');
+    webContents.insertCSS('*, iframe * { font-family: system-ui!important; } ::-webkit-scrollbar { display:none; } #container.ytd-masthead, header { -webkit-app-region: drag!important; -webkit-user-select: none!important; } yt-icon-button, yt-icon, #container.ytd-searchbox, ytd-topbar-menu-button-renderer, a, ytcp-icon-button, ytcp-button, input { -webkit-app-region: no-drag!important; } html:not(.style-scope)[dark], :not(.style-scope)[dark] { --yt-spec-brand-background-primary: rgba(50, 0, 0, 0.9)!important; } html:not(.style-scope) { --yt-spec-brand-background-primary: rgba(255, 200, 200, 0.9)!important; }');
     if(process.platform == "darwin")
       webContents.insertCSS('#start.ytd-masthead, ytcp-header { padding-left: 60px; }');
     else
