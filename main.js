@@ -52,7 +52,7 @@ app.on("ready", () =>
       },
       {
         role: 'close',
-        lab,el: '閉じる'
+        label: '閉じる'
       },
       {
         label: '終了',
